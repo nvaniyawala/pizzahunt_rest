@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+
+.btn-main{
+    @apply transition-all duration-200 ease-out cursor-pointer bg-primary-dark text-white px-6 py-[6px] rounded-lg hover:bg-ph-primary focus:bg-ph-primary hover:text-white focus:text-white
+}
+
+.navbar{
+    /* @apply transition-all duration-200 ease-in bg-ph-primary-soft text-ph-dark sticky top-0 z-20 */
+    @apply transition-all duration-200 ease-in bg-ph-white text-ph-dark sticky top-0 shadow-md
+    /* @apply transition-all duration-200 ease-in sticky top-0 text-ph-dark bg-transparent h-0   */
+}
+.carousal-slide{
+    /* @apply absolute top-0 bg-cover bg-center w-full min-h-[450px] md:min-h-[500px] lg:min-h-[600px] bg-fixed transition-all duration-1000 ease-in */
+    @apply absolute top-0 bg-cover bg-center w-full min-h-[350px] md:min-h-[400px] lg:min-h-[500px] bg-fixed transition-all duration-1000 ease-in
+}
+.homeLocationInput{
+    @apply py-2 px-4 lg:px-8 lg:text-lg rounded-lg transition-all duration-200 ease-in ring-2 ring-ph-primary-soft focus:outline-0 focus:ring-4 focus:ring-ph-primary h-fit w-full md:w-[50%] lg:w-[60%] xl:w-[70%] self-center
+}
+.homeLocationBtn{
+    @apply transition-all duration-300 ease-out bg-ph-primary-soft my-2 md:my-0 md:mx-2 px-4 lg:px-8 py-[0.70rem] rounded-lg -translate-y-0 lg:text-lg scale-95 hover:scale-100 focus:scale-100 hover:bg-ph-primary focus:bg-ph-primary uppercase font-bold self-center
+}
+.back-pop{
+    @apply h-[100px] w-[100px] z-10 absolute top-0 before:absolute before:h-[100px] before:w-[100px] before:rounded-full before:-top-5 before:-right-7 before:content-[''] before:bg-[rgba(225,112,26,.4)] before:-z-10 before:scale-95 before:group-hover:scale-110 before:transition-all before:duration-200 before:ease-in
+}
+.feature-card{
+    @apply rounded-md shadow-md transition-all duration-200 ease-in hover:shadow-2xl hover:scale-105 py-4 px-6 min-h-[250px] mb-4 bg-[#f0e8e0]
+}
+
+/* Theme button */
+.btn-theme{
+    @apply transition-all duration-200 ease-in border-[1px] border-ph-primary bg-ph-primary h-fit text-white px-4 py-[.4rem] rounded-lg shadow-lg hover:bg-ph-white hover:text-ph-primary focus:bg-ph-white focus:text-ph-primary
+}
+.btn-theme-outlined{
+    @apply transition-all duration-200 ease-in border-[1px] border-ph-primary bg-ph-white h-fit text-ph-primary px-6 py-[.4rem] rounded-lg shadow-lg hover:bg-ph-primary hover:text-ph-white focus:bg-ph-primary focus:text-ph-white
+}
+.btn-theme-shadowed{
+    @apply transition-all duration-200 ease-in border-0 bg-ph-white text-ph-primary h-fit px-4 py-[.4rem] rounded-lg shadow-md hover:shadow-xl hover:bg-ph-smoke focus:bg-ph-smoke focus:shadow-xl
+}
+.btn-theme-filled-shadowed{
+    @apply transition-all duration-200 ease-in border-0 bg-ph-primary text-ph-white h-fit px-4 py-[.4rem] rounded-lg shadow-md hover:shadow-xl hover:bg-ph-primary-soft focus:bg-ph-primary-soft focus:shadow-xl
+}
+.btn-danger-filled-shadowed{
+    @apply transition-all duration-200 ease-in border-0 bg-red-500 text-ph-white h-fit px-4 py-[.4rem] rounded-lg shadow-md hover:shadow-xl hover:bg-red-500 focus:bg-red-500 focus:shadow-xl
+}
+.btn-success-filled-shadowed{
+    @apply transition-all duration-200 ease-in border-0 bg-green-600 text-ph-white h-fit px-4 py-[.4rem] rounded-lg shadow-md hover:shadow-xl hover:bg-green-600 focus:bg-green-600 focus:shadow-xl
+}
+.btn-info-filled-shadowed{
+    @apply transition-all duration-200 ease-in border-0 bg-blue-500 text-ph-white h-fit px-4 py-[.4rem] rounded-lg shadow-md hover:shadow-xl hover:bg-blue-500 focus:bg-blue-500 focus:shadow-xl
+}
+
+/* Theme input */
+.ph-input-text{
+    @apply transition-all duration-200 ease-in outline-none ring-1 ring-ph-primary-soft px-4 py-2 rounded-md w-full hover:ring-3 hover:ring-ph-primary-soft focus:ring-3 focus:ring-ph-primary-soft
+}
+.ph-label{
+    @apply block text-lg mb-1
+}
+.ph-input-invalid{
+    @apply transition-all duration-200 ease-in outline-none ring-1 ring-red-500 px-4 py-2 rounded-md w-full hover:ring-3 hover:ring-red-500 focus:ring-3 focus:ring-red-500
+}
+.ph-radio{
+    @apply h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600
+}
+.ph-select {
+     @apply py-2 px-3 pe-9 block w-full outline-none ring-1 ring-ph-primary-soft   rounded-md text-sm   disabled:opacity-50 disabled:pointer-events-none hover:ring-ph-primary-soft focus:ring-3 focus:ring-ph-primary-soft
+}
+.error-message{
+    @apply text-red-700 flex
+}
+.form-button{
+    @apply mt-8
+}
+.form-check-input:checked {
+    @apply checked:bg-ph-primary-soft focus:border-2 checked:border-ph-primary focus:border-ph-primary focus:outline-none focus:shadow-[0_0_0_.25rem_rgba(225,157,55,0.25)]
+}
+
+.form-control:hover, .form-control:focus{
+    @apply border-ph-yellow-soft focus:border-ph-primary focus:shadow-[0_0_0_.25rem_rgba(225,157,55,0.25)]
+}
+
+.card{
+    @apply transition-all duration-200 ease-in shadow-md hover:shadow-lg focus:shadow-lg
+}
+
+/* Navbar styling */
+.navbar-loggedin{
+    @apply flex justify-start sticky top-0 shadow-md
+}
+.nav-list{
+    @apply flex mb-0
+}
+.nav-mobile-list{
+    @apply transition-all duration-200 ease-out block fixed left-0 top-14 bg-ph-white w-full text-center z-10 px-0
+}
+.nav-list-items{
+    @apply mx-1 
+}
+
+.link-a{
+    @apply block md:inline-block px-4 py-3 transition-all duration-200 ease-linear text-ph-dark focus:text-white hover:text-white hover:bg-ph-primary focus:bg-ph-primary rounded-lg no-underline
+    /* @apply block md:inline-block px-4 py-3 transition-all duration-200 ease-linear text-ph-dark hover:text-ph-primary focus:text-ph-primary rounded-lg */
+}
+.link-a-active{
+    @apply no-underline text-ph-white bg-ph-primary
+}
+.hamburger{
+    @apply flex flex-col w-[40px] h-[40px] rounded-md self-center justify-center cursor-pointer md:hidden mr-6
+}
+.slice{
+    @apply border-2 border-ph-dark bg-ph-dark opacity-100 my-1 w-10/12 mx-auto transition-all duration-300 ease-out
+}
+.ham-active .slice:nth-child(1){
+    @apply rotate-45 translate-y-[10px]
+}
+.ham-active .slice:nth-child(3){
+    @apply -rotate-45 -translate-y-[10px]
+}
+.ham-active .slice:nth-child(2){
+    @apply translate-x-2 opacity-0
+}
+.colored-toast.swal2-icon-success {
+    background-color: #a5dc86 !important;
+  }
+  
+  .colored-toast.swal2-icon-error {
+    background-color: #f27474 !important;
+  }
+  
+  .colored-toast.swal2-icon-warning {
+    background-color: #f8bb86 !important;
+  }
+  
+  .colored-toast.swal2-icon-info {
+    background-color: #3fc3ee !important;
+  }
+  
+  .colored-toast.swal2-icon-question {
+    background-color: #87adbd !important;
+  }
+  
+  .colored-toast .swal2-title {
+    color: white;
+  }
+  
+  .colored-toast .swal2-close {
+    color: white;
+  }
+  
+  .colored-toast .swal2-html-container {
+    color: white;
+  }
+  
+@tailwind utilities;
