@@ -17,6 +17,9 @@ import javax.json.JsonObject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.ws.rs.core.Response;
+import org.eclipse.microprofile.metrics.annotation.Counted;
+import org.eclipse.microprofile.metrics.annotation.Metered;
+import org.eclipse.microprofile.metrics.annotation.Timed;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 import utilities.Enums;
 import utilities.PHResponseType;
@@ -31,8 +34,14 @@ public class PreprationEJB implements PreprationEJBLocal {
     @Inject
     @RestClient
     PreprationClient client;
-    @PersistenceContext(unitName = "orderpu")
+    //@PersistenceContext(unitName = "orderpu")
+    @PersistenceContext(unitName = "ordersyspu")
+
     EntityManager em;
+    
+    @Inject
+    MetricRegistryManager metricRegistryManager;
+
 
     @Override
     public JsonObject getOrdersByOutletandStatus(String outlet_id, String status) {
@@ -71,6 +80,22 @@ public class PreprationEJB implements PreprationEJBLocal {
 
     }
 
+    
+    @Timed(name = "sendOrderToDelivery.timer",
+        absolute = true,
+        displayName = "sendOrderToDelivery Timer",
+        description = "Time taken by sendOrderToDelivery.")
+    
+    @Metered(name = "sendOrderToDelivery.Meter",
+        displayName = "sendOrderToDelivery call frequency",
+        description = "Rate the throughput of sendOrderToDelivery.")
+    
+    @Counted(name = "addOrder",
+        absolute = true,
+        displayName = "sendOrderToDelivery call count",
+        description = "Number of times we call sendOrderToDelivery")
+    
+    
     @Override
     public PHResponseType sendOrderToDelivery(String orderid, String outletid) {
         PHResponseType response = new PHResponseType();
@@ -80,8 +105,10 @@ public class PreprationEJB implements PreprationEJBLocal {
             return response;
         } catch (Exception ex) {
             ex.printStackTrace();
-            response.setStatus(405);
-            response.setMessage("failed!!!");
+             metricRegistryManager.increment4xCount();//one of service call failed as it is unavailable
+            metricRegistryManager.get4xCount();
+            response.setStatus(404);
+            response.setMessage("delivery failed!!! "+ ex.getMessage());
             return response;
         }
     }

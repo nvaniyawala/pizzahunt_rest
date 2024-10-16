@@ -18,22 +18,26 @@ import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
  *
  * @author HP Laptop
  */
+//when running on payara server on localhost
+
+
+//when running on payara micro without container on localhost
 //@RegisterRestClient(baseUri = "http://localhost:8083/CustomerService/rest/")
 //@RegisterRestClient(baseUri = "http://docker_customer:8080/CustomerService/rest/")
-@RegisterRestClient(baseUri = "http://customer:8080/CustomerService/rest/")
+@RegisterRestClient(baseUri = "http://localhost:8080/CustomerService/rest/")
 
 @Path("/customer")
 public interface IClientCustomer {
 
-//    default String generateToken(){
-//        return "";
-//    }
+    /*default String generateToken(){
+        return "";
+    }*/
     
     @POST
     @Path("/register")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-//    @ClientHeaderParam(name = "Authorization" , value = "{generateToken}")
+  //  @ClientHeaderParam(name = "Authorization" , value = "{generateToken}")
     public Response register(@RequestBody JsonObject data);
 
 }

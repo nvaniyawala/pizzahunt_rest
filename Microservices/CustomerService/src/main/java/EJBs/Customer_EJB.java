@@ -34,7 +34,9 @@ public class Customer_EJB implements Customer_EJBLocal {
 //    EntityManagerFactory emf = Persistence.createEntityManagerFactory("order_pu");
 //    EntityManager em = emf.createEntityManager();
 
-    @PersistenceContext(unitName = "order_pu")
+    //@PersistenceContext(unitName = "order_pu")
+      @PersistenceContext(unitName = "ordersyspu")
+
     EntityManager em;
 
     @Override
@@ -148,10 +150,12 @@ public class Customer_EJB implements Customer_EJBLocal {
             address.setPincode(pincodes);
             em.merge(address);
             response.setStatus(200);
-            response.setMessage("Address Updated Successfully!!!");
+           response.setMessage("Address Updated Successfully!!!");
             return response;
         } catch (Exception ex) {
-            return null;
+            response.setMessage(ex.toString());
+            return response;
+            //return null;
         }
     }
 

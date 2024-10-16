@@ -20,7 +20,7 @@ import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 //@RegisterRestClient(baseUri = "http://docker_ordering:8080/OrderingService/rest")
 
 //@RegisterRestClient(baseUri = "http://localhost:8085/OrderingService/rest")
-@RegisterRestClient(baseUri = "http://ordering:8080/OrderingService/rest")
+@RegisterRestClient(baseUri = "http://localhost:8080/OrderingService/rest")
 @Path("/ordering")
 public interface IClientOrder {
 

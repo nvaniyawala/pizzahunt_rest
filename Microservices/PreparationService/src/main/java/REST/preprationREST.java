@@ -60,6 +60,7 @@ public class preprationREST {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response sendOrderToDelivery(@RequestBody JsonObject data) {
+        System.out.print("sendordertodelivery "+data.toString());
         String orderid=data.getString("orderid");
         String outletid=data.getString("outletid");
         PHResponseType phr = ejb.sendOrderToDelivery(orderid,outletid);

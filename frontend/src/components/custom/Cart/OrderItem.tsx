@@ -123,7 +123,7 @@ function OrderItem(props: IOrderItemProps) {
     placeCustomerOrder
       .MakeHttpRequest()
       .then((result) => {
-        console.log(result);
+        console.log("result is" +result.result.toString() + " error: "+ result.error);
         if (result.result) {
           props.setUserCredit(Number(result.result?.message).toFixed(2));
           Swal.fire({

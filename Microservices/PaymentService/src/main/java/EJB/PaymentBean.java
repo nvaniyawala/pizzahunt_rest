@@ -21,7 +21,9 @@ import utilities.PHResponseType;
 @Stateless
 public class PaymentBean implements PaymentBeanLocal {
 
-    @PersistenceContext(unitName = "orderpu")
+   // @PersistenceContext(unitName = "orderpu")
+        @PersistenceContext(unitName = "ordersyspu")
+
     EntityManager em;
 
     @Inject
@@ -54,8 +56,9 @@ public class PaymentBean implements PaymentBeanLocal {
                 return phr;
             }
         } catch (Exception ex) {
-            phr.setMessage("Payment Failed due to some Exception.");
-            phr.setStatus(405);
+           // phr.setMessage("Payment Failed due to some Exception.");
+            phr.setMessage("request to customer service failed "+ ex.getMessage().toString());
+            phr.setStatus(404);
             return phr;
         }
     }

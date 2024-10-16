@@ -20,7 +20,7 @@
 
 2. Now if you are running this application in windows you can directly run `run.bat` or you can write followings list of commands to run respective services with _payara-micro_.\
 
-   - strat customer srevice:`java -jar payara-micro-5.194.jar --deploy Microservices/artifact/CustomerService.war --port 8083 --addlibs mysql-connector-java-8.0.28.jar --domainconfig domain.xml`\
+   - start customer srevice:`java -jar payara-micro-5.194.jar --deploy Microservices/artifact/CustomerService.war --port 8083 --addlibs mysql-connector-java-8.0.28.jar --domainconfig domain.xml`\
 
    - start management service: `java -jar payara-micro-5.194.jar --deploy Microservices/artifact/ManagementService.war --port 8084 --addlibs mysql-connector-java-8.0.28.jar --domainconfig domain.xml`\
 
@@ -41,3 +41,9 @@
 4. Start and use the application running on `http://localhost:5173`.
 
 Note: Order of the respective outlets will be assigned to those delivery persons only who are employees of that outlet. So you can see customers' ordres list only after logged into that delivery persons account, whom orders are allocated by their respective outlet branch. `i.e:` You are as a customer ordering food from vesu branch, so you as delivery person can only see assigned orders list, if you are employee of vesu branch and one to whom order is assigned.
+
+5. Login credentials
+
+Customer - username:nvaniywala@gmail.com  password: nidhi@123 outlet:sagrampura
+Outlet - username: sagaram@gmail.com password: sag123  outlet: sagrampura
+delivery person - username:avinash@gmail.com   passwrod: avi123  outlet: sagrampura

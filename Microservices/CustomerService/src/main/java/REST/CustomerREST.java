@@ -82,7 +82,7 @@ public class CustomerREST {
 
    
     @POST
-    //@RolesAllowed(ROLE_CUSTOMER)
+   // @RolesAllowed(ROLE_CUSTOMER)
     @Path("/addAddress")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -96,14 +96,14 @@ public class CustomerREST {
     }
     
     @POST
-    //@RolesAllowed(ROLE_CUSTOMER)
+   // @RolesAllowed(ROLE_CUSTOMER)
     @Path("/updateAddress")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response updateAddress(@RequestBody JsonObject data){
          PHResponseType phr = ejb.updateAddress(data);
        if(phr!=null){
-           return Response.status(200).entity(phr).build();
+           return Response.status(200, phr.getMessage()).entity(phr).build();
        }else{
            return Response.status(405,"Address Updation failed!!").build();
        }
@@ -124,7 +124,7 @@ public class CustomerREST {
     }
     
     @POST
-     //@RolesAllowed(ROLE_CUSTOMER)
+    // @RolesAllowed(ROLE_CUSTOMER)
     @Path("/sendOTP/{email}")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
@@ -147,7 +147,7 @@ public class CustomerREST {
     }
     
     @POST
-     //@RolesAllowed(ROLE_CUSTOMER)
+    //@RolesAllowed(ROLE_CUSTOMER)
     @Path("/updateProfile")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -161,7 +161,7 @@ public class CustomerREST {
     }
     
     @GET
-//    //@RolesAllowed(ROLE_CUSTOMER)
+    //@RolesAllowed(ROLE_CUSTOMER)
     @Path("/getCredits/{id}")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
@@ -185,7 +185,7 @@ public class CustomerREST {
     }
     
     @POST
-     //@RolesAllowed(ROLE_CUSTOMER)
+   // @RolesAllowed(ROLE_CUSTOMER)
     @Path("/changePassword")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
